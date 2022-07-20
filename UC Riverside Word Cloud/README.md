@@ -5,6 +5,7 @@
 
 ### Possible TO-DO's
 - Improve speed of png generation.
+- Provide path to place output png's into a subdirectory.
 - Include recursion for fq() input file line-flattening.
 - Incorporate NLTK/spaCy for accurately determining or categorizing meaningful concepts.
 - Create plotting function with matplotlib for modeling of word frequencies or other data.
