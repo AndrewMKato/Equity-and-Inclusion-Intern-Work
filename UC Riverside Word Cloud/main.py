@@ -18,4 +18,4 @@ word_cloud = WordCloud(
 
 word_cloud.generate(classrooms_text)
 
-word_cloud.to_file('inclusive_classrooms_URI.png')
+word_cloud.to_file('inclusive_classrooms_UCR.png')
