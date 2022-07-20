@@ -1,21 +1,25 @@
-import matplotlib.pyplot as plt
-from wordcloud import WordCloud, STOPWORDS
+from wc_functions import wc, fq
+import stop_words as sw
 
-with open('Inclusive_Classrooms_for_web.txt', 'r', encoding='utf-8') as file:
-    classrooms_text: str = file.read()
+def main():
 
-stop_words = list(STOPWORDS)
-stop_words.append('UCR')
-stop_words.append('Riverside')
-print(stop_words)
+    stops: list = sw.get_stop_words('english')
+    stops.append('UCR')
+    stops.append('Riverside')
+    stops.append('used')
+    stops.append('will')
+    tuple(stops)
 
-word_cloud = WordCloud(
-    background_color='white',
-    stopwords=stop_words,
-    height=500, # In pixels.
-    width=500 # In pixels.
-)
+    UCR_text_files = {
+        'Classrooms': 'inc_classrooms.png',
+        'Conversations': 'inc_conversations.png',
+        'Language': 'inc_language.png',
+        'Organizations': 'inc_organizations.png'
+    }
 
-word_cloud.generate(classrooms_text)
+    for file_keyword, output_title in UCR_text_files.items():
+        wc(f'Inclusive_{file_keyword}_for_web.txt', output_title, chosen_stop_words=stops) # File name choice is dynamic.
+        print(fq(f'Inclusive_{file_keyword}_for_web.txt', chosen_stop_words=stops))
 
-word_cloud.to_file('inclusive_classrooms_UCR.png')
+if __name__ == '__main__':
+    main()
