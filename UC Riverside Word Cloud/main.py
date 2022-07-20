@@ -4,10 +4,7 @@ import stop_words as sw
 def main():
 
     stops: list = sw.get_stop_words('english')
-    stops.append('UCR')
-    stops.append('Riverside')
-    stops.append('used')
-    stops.append('will')
+    stops.extend(['UCR', 'Riverside', 'used', 'will'])
     tuple(stops)
 
     UCR_text_files = {
