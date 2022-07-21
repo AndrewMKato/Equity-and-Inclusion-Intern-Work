@@ -22,7 +22,7 @@ def fq(txt_file_title: str, chosen_stop_words: tuple=()):
     Frequency = Counter(words)
     return(Frequency.most_common(10))
 
-def wc(txt_file_title: str, png_output_title: str, chosen_stop_words: tuple=()):
+def wc(txt_file_title: str, png_output_title: str, chosen_stop_words: tuple=(), num_words=50):
     '''Uses the stylecloud library to create a word cloud output file for the provided input.'''
 
     sc.gen_stylecloud(
@@ -30,5 +30,5 @@ def wc(txt_file_title: str, png_output_title: str, chosen_stop_words: tuple=()):
         output_name=png_output_title,
         icon_name='fas fa-square',
         custom_stopwords=chosen_stop_words,
-        # size=2056
+        max_words=num_words
         )
